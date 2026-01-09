@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bookmark Categories</title>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f4f4f4;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .main-btn {
+      display: block;
+      margin: 0 auto 20px;
+      padding: 12px 24px;
+      font-size: 16px;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .category-buttons {
+      display: none;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .category-buttons button {
+      padding: 10px 20px;
+      background: #6c757d;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .category-buttons button.active {
+      background: #28a745;
+    }
+
+    .content {
+      display: none;
+      animation: fadeIn 0.4s ease-in;
+    }
+
+    .content.active {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+    }
+
+    .image-card {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .image-card img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .category-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      .category-buttons button {
+        width: 100%;
+        max-width: 220px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<h2>📌 Bookmark Categories</h2>
+
+<button class="main-btn" onclick="toggleCategoryButtons()" id="toggleBtn">
+  Show Categories
+</button>
+
+<div class="category-buttons" id="categoryButtons">
+  <button onclick="showTab('viewed', this)">Most Viewed</button>
+  <button onclick="showTab('downloaded', this)">Most Downloaded</button>
+  <button onclick="showTab('recommended', this)">Recommended</button>
+</div>
+
+<div id="viewed" class="content">
+  <div class="image-card"><img src="https://ik.imagekit.io/ikmedia/Graphics/2024%20Website%20Graphics/Cross%20Team%20Collab/Securely%20distribute%20assets%20with%20public%20links.jpg?updatedAt=17140498060781&tr=w-1250"></div>
+  <div class="image-card"><img src="https://ik.imagekit.io/ikmedia/Graphics/2024%20Website%20Graphics/DAM/Organize%20assets%20into%20folders%20and%20collections.mp4/ik-thumbnail.jpg?updatedAt=17140476284751&tr=w-1250"></div>
+  <div class="image-card"><img src="https://ik.imagekit.io/ikmedia/Graphics/2024%20Website%20Graphics/Cross%20Team%20Collab/Securely%20distribute%20assets%20with%20public%20links.jpg?updatedAt=17140498060781&tr=w-1250"></div>
+  <div class="image-card"><img src="https://ik.imagekit.io/ikmedia/Graphics/2024%20Website%20Graphics/DAM/Organize%20assets%20into%20folders%20and%20collections.mp4/ik-thumbnail.jpg?updatedAt=17140476284751&tr=w-1250"></div>
+</div>
+
+<div id="downloaded" class="content">
+  <div class="image-card"><img src="https://ik.imagekit.io/ikmedia/Graphics/2024%20Website%20Graphics/Centralised%20DAM/DAM%20AI%20search.mp4/ik-thumbnail.jpg?updatedAt=1719480099871&tr=w-1250"></div>
+  <div class="image-card"><img src="https://ik.imagekit.io/ikmedia/Graphics/2024%20Website%20Graphics/Centralised%20DAM/AI%20for%20faster%20organization.mp4/ik-thumbnail.jpg?updatedAt=17140475183310&tr=w-1250"></div>
+  <div class="image-card"><img src="https://ik.imagekit.io/ikmedia/Graphics/2024%20Website%20Graphics/Centralised%20DAM/DAM%20AI%20search.mp4/ik-thumbnail.jpg?updatedAt=1719480099871&tr=w-1250"></div>
+  <div class="image-card"><img src="https://ik.imagekit.io/ikmedia/Graphics/2024%20Website%20Graphics/Centralised%20DAM/AI%20for%20faster%20organization.mp4/ik-thumbnail.jpg?updatedAt=17140475183310&tr=w-1250"></div>
+</div>
+
+<div id="recommended" class="content">
+  <div class="image-card"><img src="https://ik.imagekit.io/ikmedia/Graphics/2024%20Website%20Graphics/Centralised%20DAM/Custom%20Metadata%20-%20File%20and%20Folder%20Names.mp4/ik-thumbnail.jpg?updatedAt=17140475186118&tr=w-1250"></div>
+  <div class="image-card"><img src="https://ik.imagekit.io/ikmedia/Graphics/2024%20Website%20Graphics/Centralised%20DAM/DAM%20AI%20search.mp4/ik-thumbnail.jpg?updatedAt=1719480099871&tr=w-1250"></div>
+  <div class="image-card"><img src="https://ik.imagekit.io/ikmedia/Graphics/2024%20Website%20Graphics/Centralised%20DAM/Custom%20Metadata%20-%20File%20and%20Folder%20Names.mp4/ik-thumbnail.jpg?updatedAt=17140475186118&tr=w-1250"></div>
+  <div class="image-card"><img src="https://ik.imagekit.io/ikmedia/Graphics/2024%20Website%20Graphics/Centralised%20DAM/DAM%20AI%20search.mp4/ik-thumbnail.jpg?updatedAt=1719480099871&tr=w-1250"></div>
+</div>
+
+<script>
+  let isOpen = false;
+
+  function toggleCategoryButtons() {
+    const buttons = document.getElementById('categoryButtons');
+    const toggleBtn = document.getElementById('toggleBtn');
+
+    if (!isOpen) {
+      buttons.style.display = 'flex';
+      toggleBtn.innerText = 'Hide Categories';
+      isOpen = true;
+    } else {
+      buttons.style.display = 'none';
+      toggleBtn.innerText = 'Show Categories';
+      isOpen = false;
+
+      // Hide all content
+      document.querySelectorAll('.content').forEach(c =>
+        c.classList.remove('active')
+      );
+
+      // Reset active buttons
+      document.querySelectorAll('.category-buttons button').forEach(btn =>
+        btn.classList.remove('active')
+      );
+    }
+  }
+
+  function showTab(id, el) {
+    document.querySelectorAll('.content').forEach(c =>
+      c.classList.remove('active')
+    );
+
+    document.getElementById(id).classList.add('active');
+
+    document.querySelectorAll('.category-buttons button').forEach(btn =>
+      btn.classList.remove('active')
+    );
+
+    el.classList.add('active');
+  }
+</script>
+
+</body>
+</html>
